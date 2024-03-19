@@ -1,8 +1,12 @@
-import React from 'react'
+import React,{Fragment} from 'react'
+import RootLayout from './components/RootLayout'
+
 const App = () => {
   
   return (
-    <div className='bg-red-400'>Hii</div>
+    <Fragment>
+      <RootLayout/>      
+    </Fragment>
   )
 }
 
