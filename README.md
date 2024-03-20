@@ -1,6 +1,6 @@
 # YouTube Clone
 
-This is a YouTube clone built with React, Tailwind CSS, and the YouTube API.
+This is a YouTube clone built with React, Redux, Tailwind CSS, and the YouTube API.
 
 ## Features
 

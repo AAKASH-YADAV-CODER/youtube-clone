@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiReducer=createSlice({
     name: "ui",
-    initialState: { toggle: false },
+    initialState: { toggle: true },
     reducers: {
         toggleMenu(state) {
             state.toggle = !state.toggle
