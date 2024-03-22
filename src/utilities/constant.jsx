@@ -44,4 +44,4 @@ export const categories = [
     { name: "Send feedback", icon: <RiFeedbackLine />, type: "menu" },
 ];
 
-export const TagsButtonConstant=["ALL","NEW","SPRIHA","NEXTJS","AAKASH","NEWBOOK","REACT","REDUX","ICARD","SQL"]
+export const TagsButtonConstant=["ALL","JAVASCRIPT","NODEJS","NEXTJS","SQL","MONGODB","REACT","REDUX","C++","DATA STRUCTURE","OOPS","COMPUTER NETWORKING","OPERATING SYSTEM"]

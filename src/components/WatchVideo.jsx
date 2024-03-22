@@ -6,6 +6,7 @@ import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { PiShareFatLight } from "react-icons/pi";
 import { GoDownload } from "react-icons/go";
 import axios from 'axios';
+import ChatLayout from './Chat/ChatLayout';
 const WatchVideo = () => {
     // const [input, setInput] = useState("");
     const menuOpen = useSelector(state => state.ui.toggle);
@@ -25,9 +26,9 @@ const WatchVideo = () => {
     }, []);
 
     return (
-        <div className='flex left-0 relative top-[65px] gap-2 w-[100%] p-1'>
+        <div className='flex left-0 relative top-[65px] p-1 justify-between'>
             {menuOpen && <div className='w-full h-full fixed top-[65px] left-0 bg-black bg-opacity-20 z-50'>
-            <SideBar />
+                <SideBar />
             </div>}
             <div className='w-[75%]'>
                 <iframe
@@ -39,15 +40,15 @@ const WatchVideo = () => {
                     allowFullScreen>
                 </iframe>
                 <h1 className='font-bold mt-2 text-lg'>{singleVideo?.snippet?.title}</h1>
-                <div className='flex items-center justify-between'>
-                    <div className='flex items-center justify-between w-[35%]'>
+                <div className='flex items-center justify-between overflow-auto'>
+                    <div className='flex items-center justify-between gap-8 my-3'>
                         <div className='flex'>
                             <img src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" className='w-8 h-8 rounded-full' />
                             <h1 className='font-bold ml-2'>{singleVideo?.snippet?.channelTitle}</h1>
                         </div>
                         <button className='px-4 py-1 font-medium bg-black text-white rounded-full'>Subscribe</button>
                     </div>
-                    <div className='flex items-center w-[40%] justify-between mt-2'>
+                    <div className='flex items-center  justify-between mt-2 gap-5'>
                         <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full'>
                             <AiOutlineLike size="20px" className='mr-5' />
                             <AiOutlineDislike size="20px" />
@@ -63,6 +64,7 @@ const WatchVideo = () => {
                     </div>
                 </div>
             </div>
+            <ChatLayout />
         </div>
     )
 }

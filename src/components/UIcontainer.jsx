@@ -24,8 +24,6 @@ const UIcontainer = () => {
       <ButtonTag />
       <div className='w-100% grid grid-cols-3 m-4 justify-center'>
         {items.map(items => {
-          console.log(items);
-          
           return (<Link to={`/watch?v=${items.id}`} key={items.id}>
             <VideoList  items={items} />
           </Link>)
