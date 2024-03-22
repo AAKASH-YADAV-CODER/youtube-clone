@@ -5,22 +5,22 @@ import SideBar from './SideBar';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { PiShareFatLight } from "react-icons/pi";
 import { GoDownload } from "react-icons/go";
-import axios from 'axios';
+import { fetchSingleVideo } from '../utilities/api.jsx';
 import ChatLayout from './Chat/ChatLayout';
 const WatchVideo = () => {
-    // const [input, setInput] = useState("");
     const menuOpen = useSelector(state => state.ui.toggle);
     const [singleVideo, setSingleVideo] = useState(null);
     const [searchParams] = useSearchParams();
     const videoId = searchParams.get('v');
     const getSingleVideo = async () => {
         try {
-            const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`);
+            const res = await fetchSingleVideo(videoId);
             setSingleVideo(res?.data?.items[0]);
         } catch (error) {
             console.log(error);
         }
     }
+    
     useEffect(() => {
         getSingleVideo();
     }, []);
@@ -43,7 +43,7 @@ const WatchVideo = () => {
                 <div className='flex items-center justify-between overflow-auto'>
                     <div className='flex items-center justify-between gap-8 my-3'>
                         <div className='flex'>
-                            <img src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" className='w-8 h-8 rounded-full' />
+                            <img src={singleVideo?.snippet?.thumbnails?.high?.url} className='w-8 h-8 rounded-full' />
                             <h1 className='font-bold ml-2'>{singleVideo?.snippet?.channelTitle}</h1>
                         </div>
                         <button className='px-4 py-1 font-medium bg-black text-white rounded-full'>Subscribe</button>

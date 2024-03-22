@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react'
 import axios from "axios";
 const VideoList = ({items}) => {
   const [ytIcon, setYtIcon] = useState("");
-  const getYoutubeChannelName = async () => {
+  useEffect(() => {
+    const getYoutubeChannelName = async () => {
     try {
       const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${items.snippet.channelId}&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`)
       setYtIcon(res.data.items[0].snippet.thumbnails.high.url);
@@ -10,8 +11,6 @@ const VideoList = ({items}) => {
       console.log(error);
     }
   }
-
-  useEffect(() => {
     getYoutubeChannelName();
   }, [])
 
