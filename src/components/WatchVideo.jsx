@@ -38,7 +38,7 @@ const WatchVideo = () => {
                 <SideBar />
             </div>}
             {isLoading && <SkeletonLoading/>}
-            <div className='w-[100%] sm:w-[75%] h-[250px] sm:h-[550px]'>
+            <div className='w-[100%] sm:w-[75%] h-[250px] sm:h-[550px] mb-10'>
                 <iframe
                     width="100%"
                     height="100%"
