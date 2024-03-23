@@ -55,10 +55,10 @@ const UIcontainer = () => {
     };
   }, [activeButton]);
   return (
-    <div className={`${openSidebar ? "w-[80%]" : "w-[95%]"} bg-white overflow-y-scroll overflow-x-scroll h-[calc(100vh)] dark:bg-slate-900 dark:text-white`}>
+    <div className={`md:${openSidebar ? "w-[80%]" : "w-[95%]"} bg-white overflow-y-scroll overflow-x-scroll h-[calc(100vh)] dark:bg-slate-900 dark:text-white w-full`}>
       <ButtonTag />
       {isLoading && <SkeletonLayout />}
-      <div className='w-100% grid grid-cols-3 m-4 justify-center'>
+      <div className='w-100% grid grid-cols-1 md:grid-cols-3 m-4 justify-center sm:grid'>
         {videoDefault.map((items) => {
           const key = typeof items.id === 'object' ? items.id.videoId : items.id;
           return (

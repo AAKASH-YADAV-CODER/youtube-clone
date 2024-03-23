@@ -4,12 +4,8 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Home from './pages/HomePage.jsx'
 import WatchPage from "./pages/WatchPage.jsx"
 import ErrorPage from './pages/ErrorPage.jsx'
-import { useSelector } from 'react-redux'
 import { SkeletonTheme } from 'react-loading-skeleton'
 const App = () => {
-  const { isLoading } = useSelector(store => store.ui);
-  console.log(isLoading);
-  
   const router = createBrowserRouter([
     {
       path: '/',

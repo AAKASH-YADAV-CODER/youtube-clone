@@ -51,9 +51,9 @@ const NavBar = () => {
     return (
         <header className='dark:bg-slate-900 dark:text-white fixed justify-between w-full  top-0 z-50 bg-white drop-shadow-xl'>
             <ul className='flex justify-between py-1 h-[65px]'>
-                <li className='flex gap-2 ml-4 my-3 cursor-pointer'>
+                <li className='flex gap-2 ml-4 my-3 cursor-pointer '>
                     <RxHamburgerMenu size={"24px"} onClick={toggleHandler} />
-                    <img src={theme==='dark'?'/images/yt-logo-dark.png':"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"}  className='h-6 ' />
+                    <img src={theme==='dark'?'/images/yt-logo-dark.png':"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"}  className='h-6 hidden sm:inline-block' />
                 </li>
                 <li className='flex w-[40%] m-2 ml-14'>
                     <div className='border border-gray-800 dark:border-gray-100 rounded-l-3xl w-full '>
@@ -96,8 +96,8 @@ const NavBar = () => {
                     <div className=''>
                         <ThemeModel/>
                     </div>
-                    <IoMdNotificationsOutline size={"24px"} className='cursor-pointer' />
-                    <BiSolidCameraMovie size={"24px"} className='cursor-pointer' />
+                    <IoMdNotificationsOutline size={"24px"} className='cursor-pointer hidden sm:inline-block' />
+                    <BiSolidCameraMovie size={"24px"} className='cursor-pointer hidden sm:inline-block' />
                     <img src='/images/new.png' className='h-7 w-8 rounded-[50%] cursor-pointer' />
                 </li>
             </ul>

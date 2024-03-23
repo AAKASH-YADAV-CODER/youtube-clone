@@ -16,12 +16,12 @@ const ChatLayout = () => {
         textInput.current.value = '';
     }
     return (
-        <div className='border border-gray-300 ml-2 rounded-lg h-fit p-4 '>
+        <div className='border border-gray-300 ml-2 rounded-lg h-fit p-4 m-4 mt-20 sm:mt-0'>
             <div className='flex justify-between items-center'>
                 <h1>Top Chat</h1>
                 <BsThreeDotsVertical />
             </div>
-            <div className='overflow-y-auto h-[28rem] flex flex-col-reverse'>
+            <div className='overflow-y-auto h-[20rem] sm:h-[28rem] flex flex-col-reverse'>
                 <LiveChat />
             </div>
 
