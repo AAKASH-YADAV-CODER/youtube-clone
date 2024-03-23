@@ -7,16 +7,6 @@ import { generateRandomName, generateRandomMessage } from '../../utilities/helpe
 const LiveChat = () => {
     const {chatData} = useSelector((store) => store.chat);
     const dispatch = useDispatch();
-    // useEffect(()=>{
-    //    const timer = setInterval(()=>{
-    //         dispatch(setMessage({name:generateRandomName(), message:generateRandomMessage(16)}));
-    //     },1000)
-
-    //     return(()=>{
-    //         clearInterval(timer)
-    //     })
-        
-    // },[])
     useEffect(() => {
         const timer = setInterval(() => {
             const data = {

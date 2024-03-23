@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import SideBar from './SideBar';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import { PiShareFatLight } from "react-icons/pi";
 import { GoDownload } from "react-icons/go";
 import { fetchSingleVideo } from '../utilities/api.jsx';
 import ChatLayout from './Chat/ChatLayout';
+import { setLoading } from '../store/ui-slice.jsx';
+import { SkeletonLoading } from './SkeletonLayout.jsx';
 const WatchVideo = () => {
     const menuOpen = useSelector(state => state.ui.toggle);
     const [singleVideo, setSingleVideo] = useState(null);
     const [searchParams] = useSearchParams();
     const videoId = searchParams.get('v');
+    const dispatch = useDispatch();
+    const {isLoading}=useSelector(store=>store.ui)
     const getSingleVideo = async () => {
+        dispatch(setLoading(true));
         try {
             const res = await fetchSingleVideo(videoId);
             setSingleVideo(res?.data?.items[0]);
+            
         } catch (error) {
             console.log(error);
-        }
+        } finally {
+            dispatch(setLoading(false));
+        } 
     }
-    
     useEffect(() => {
         getSingleVideo();
     }, []);
@@ -30,6 +37,7 @@ const WatchVideo = () => {
             {menuOpen && <div className='w-full h-full fixed top-[65px] left-0 bg-black bg-opacity-20 z-50'>
                 <SideBar />
             </div>}
+            {isLoading && <SkeletonLoading/>}
             <div className='w-[75%]'>
                 <iframe
                     width="100%"

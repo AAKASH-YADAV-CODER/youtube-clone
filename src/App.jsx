@@ -4,25 +4,31 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Home from './pages/HomePage.jsx'
 import WatchPage from "./pages/WatchPage.jsx"
 import ErrorPage from './pages/ErrorPage.jsx'
+import { useSelector } from 'react-redux'
+import { SkeletonTheme } from 'react-loading-skeleton'
 const App = () => {
+  const { isLoading } = useSelector(store => store.ui);
+  console.log(isLoading);
+  
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Root />,
-      errorElement:<ErrorPage/>,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
-          element:<Home/>
+          element: <Home />
         },
         {
           path: 'watch',
-          element:<WatchPage/>
-        }
+          element: <WatchPage />
+        },
       ]
     }
   ])
-  return <RouterProvider router={router}/>      
+  return (<SkeletonTheme baseColor='#313131' highlightColor='#e8ffd1'><RouterProvider router={router} /> </SkeletonTheme>)
 }
 
 export default App
+//#e8ffd1
