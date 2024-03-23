@@ -38,7 +38,7 @@ const WatchVideo = () => {
                 <SideBar />
             </div>}
             {isLoading && <SkeletonLoading/>}
-            <div className='w-[100%] sm:w-[75%] h-[250px] sm:h-[550px] mb-10'>
+            <div className='w-[100%] sm:w-[75%] h-[250px] sm:h-[550px]'>
                 <iframe
                     width="100%"
                     height="100%"
@@ -50,11 +50,11 @@ const WatchVideo = () => {
                 <h1 className='font-bold mt-2 text-lg'>{singleVideo?.snippet?.title}</h1>
                 <div className='flex items-center justify-between overflow-auto no-scrollbar'>
                     <div className='flex items-center justify-between gap-8 my-3'>
-                        <div className='flex'>
+                        <div className='flex justify-center items-center'>
                             <img src={singleVideo?.snippet?.thumbnails?.high?.url} className='w-8 h-8 rounded-full' />
-                            <h1 className='font-bold ml-2'>{singleVideo?.snippet?.channelTitle}</h1>
+                            <h1 className='font-bold ml-2 '>{singleVideo?.snippet?.channelTitle}</h1>
                         </div>
-                        <button className='px-4 py-1 font-medium bg-black text-white rounded-full dark:bg-gray-200 dark:text-black'>Subscribe</button>
+                        <button className='px-4 py-1 font-medium bg-black text-white rounded-full dark:bg-gray-200 dark:text-black hidden sm:inline-block'>Subscribe</button>
                     </div>
                     <div className='flex items-center  justify-between mt-2 gap-5'>
                         <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full dark:text-black'>
@@ -63,11 +63,11 @@ const WatchVideo = () => {
                         </div>
                         <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full dark:text-black'>
                             <PiShareFatLight size="20px" className='mr-2' />
-                            <span>Share</span>
+                            <span className='hidden sm:inline-block'>Share</span>
                         </div>
                         <div className='flex items-center cursor-pointer dark:text-black bg-gray-200 px-4 py-2 rounded-full'>
                             <GoDownload />
-                            <span>Download</span>
+                            <span className='hidden sm:inline-block'>Download</span>
                         </div>
                     </div>
                 </div>
