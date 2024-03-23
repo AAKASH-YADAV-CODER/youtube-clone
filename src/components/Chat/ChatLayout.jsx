@@ -30,9 +30,9 @@ const ChatLayout = () => {
                     <div>
                         <img src="https://play-lh.googleusercontent.com/C9CAt9tZr8SSi4zKCxhQc9v4I6AOTqRmnLchsu1wVDQL0gsQ3fmbCVgQmOVM1zPru8UH=w240-h480-rw" className='w-7 h-7 rounded-full'/>
                     </div>
-                    <input ref={textInput} className='border-b border-gray-300 outline-none ml-2' type="text" placeholder='Send message...' />
+                    <input ref={textInput} className='dark:bg-slate-900 border-b border-gray-300 outline-none ml-2' type="text" placeholder='Send message...' />
                     <div className='bg-gray-200 cursor-pointer p-2 rounded-full ml-6'>
-                        <LuSendHorizonal onClick={sendMessageHandler} />
+                        <LuSendHorizonal onClick={sendMessageHandler} className='dark:text-black'/>
                     </div>
                 </div>
             </div>

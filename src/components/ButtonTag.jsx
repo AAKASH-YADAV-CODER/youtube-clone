@@ -14,7 +14,7 @@ const ButtonTag = () => {
         <ul className='flex gap-7 m-4 overflow-x-auto no-scrollbar' style={{ whiteSpace: 'nowrap' }}>{
             TagsButtonConstant.map((ele, i) => {
                 return (
-                    <li onClick={()=>{categoryHandler(ele)}} key={i} className={`rounded-xl border border-red-950 px-1 cursor-pointer drop-shadow-xl  ${activeButton===ele?'bg-black text-white shadow-2xl':''}`}>{ele}</li>
+                    <li onClick={()=>{categoryHandler(ele)}} key={i} className={`rounded-xl   px-1 cursor-pointer dark:border-white border border-neutral-900 ${activeButton===ele?'bg-black text-white drop-shadow-2xl dark:bg-white dark:text-black':''}`}>{ele}</li>
                 )
             })
         }</ul>

@@ -26,7 +26,7 @@ const WatchVideo = () => {
     }, []);
 
     return (
-        <div className='flex left-0 relative top-[65px] p-1 justify-between'>
+        <div className='flex left-0 relative top-[65px] p-1 justify-between dark:bg-slate-900 dark:text-white min-h-screen'>
             {menuOpen && <div className='w-full h-full fixed top-[65px] left-0 bg-black bg-opacity-20 z-50'>
                 <SideBar />
             </div>}
@@ -46,18 +46,18 @@ const WatchVideo = () => {
                             <img src={singleVideo?.snippet?.thumbnails?.high?.url} className='w-8 h-8 rounded-full' />
                             <h1 className='font-bold ml-2'>{singleVideo?.snippet?.channelTitle}</h1>
                         </div>
-                        <button className='px-4 py-1 font-medium bg-black text-white rounded-full'>Subscribe</button>
+                        <button className='px-4 py-1 font-medium bg-black text-white rounded-full dark:bg-gray-200 dark:text-black'>Subscribe</button>
                     </div>
                     <div className='flex items-center  justify-between mt-2 gap-5'>
-                        <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full'>
+                        <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full dark:text-black'>
                             <AiOutlineLike size="20px" className='mr-5' />
                             <AiOutlineDislike size="20px" />
                         </div>
-                        <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full'>
+                        <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full dark:text-black'>
                             <PiShareFatLight size="20px" className='mr-2' />
                             <span>Share</span>
                         </div>
-                        <div className='flex items-center cursor-pointer bg-gray-200 px-4 py-2 rounded-full'>
+                        <div className='flex items-center cursor-pointer dark:text-black bg-gray-200 px-4 py-2 rounded-full'>
                             <GoDownload />
                             <span>Download</span>
                         </div>

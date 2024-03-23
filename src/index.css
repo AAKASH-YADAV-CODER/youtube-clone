@@ -13,3 +13,13 @@
           scrollbar-width: none;  /* Firefox */
     }
   }
+*{
+    @apply transition-colors duration-0 ;
+}
+body{
+    @apply bg-white;
+    
+}
+.dark body{
+    @apply bg-slate-900;
+}

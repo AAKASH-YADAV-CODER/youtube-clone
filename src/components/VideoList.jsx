@@ -21,7 +21,7 @@ const VideoList = ({items}) => {
         <img src={ytIcon} className='w-8 h-8 rounded-full'/>
         <div className=''>
           <p className='overflow-x-clip'>{items.snippet.title}</p>
-          <h2 className='text-gray-800 font-bold'>{items.snippet.channelTitle}</h2>
+          <h2 className='text-gray-800 dark:text-white font-bold'>{items.snippet.channelTitle}</h2>
         </div>
       </div>
     </div>

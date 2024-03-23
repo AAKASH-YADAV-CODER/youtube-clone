@@ -30,7 +30,7 @@ const UIcontainer = () => {
     }
   }, [activeButton])//The info i learn from here is only pass dependencies which is essential , i do mistake here is :- passing of default video mean at evert http req it need to call network again an again which cause problem in index because at every http there is new data insert by redux so make sure only needed dependency should be give here
   return (
-    <div className={`${openSidebar ? "w-[80%]" : "w-[95%]"}  bg-red-400 overflow-y-scroll overflow-x-scroll h-[calc(100vh)]`}>
+    <div className={`${openSidebar ? "w-[80%]" : "w-[95%]"}  bg-white overflow-y-scroll overflow-x-scroll h-[calc(100vh)] dark:bg-slate-900 dark:text-white`}>
       <ButtonTag />
       <div className='w-100% grid grid-cols-3 m-4 justify-center'>
         {videoDefault.map((items) => {
