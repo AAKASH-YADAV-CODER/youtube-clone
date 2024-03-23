@@ -1,10 +1,10 @@
-import React from 'react'
+import React,{lazy,Suspense} from 'react'
 import Root from './pages/RootPage.jsx'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import Home from './pages/HomePage.jsx'
-import WatchPage from "./pages/WatchPage.jsx"
 import ErrorPage from './pages/ErrorPage.jsx'
 import { SkeletonTheme } from 'react-loading-skeleton'
+const HomePage = lazy(() => import('./pages/HomePage.jsx'));
+const WatchPage = lazy(() => import('./pages/WatchPage.jsx'));
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -14,11 +14,19 @@ const App = () => {
       children: [
         {
           index: true,
-          element: <Home />
+          element: (
+            <Suspense fallback={<div>loading...</div>}>
+              <HomePage/>
+            </Suspense>
+          )
         },
         {
           path: 'watch',
-          element: <WatchPage />
+          element: (
+            <Suspense fallback={<div>loading...</div>}>
+              <WatchPage/>
+            </Suspense>
+          )
         },
       ]
     }
