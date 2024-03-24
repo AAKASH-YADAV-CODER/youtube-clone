@@ -6,7 +6,7 @@ import { fetchDataFromApi, fetchDataFromTagButton } from '../utilities/api.jsx';
 import { Link } from 'react-router-dom';
 import { videoAction } from '../store/video-slice.jsx';
 import { setLoading } from '../store/ui-slice.jsx';
-import SkeletonLayout,{SkeletonLoading} from './SkeletonLayout.jsx';
+import SkeletonLayout from './SkeletonLayout.jsx';
 
 const UIcontainer = () => {
   const dispatch = useDispatch();
