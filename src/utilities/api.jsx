@@ -1,6 +1,6 @@
 import axios from "axios";
 const YOUTUBE_VIDEO_URL = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${import.meta.env.VITE_YOUTUBE_API_KEY}`;
-
+export const BASE_URL='https://youtube-backend-aakash-yadav.onrender.com';
 //This is initial Call for getting all king of data
 export const fetchDataFromApi = async () => {
     try {

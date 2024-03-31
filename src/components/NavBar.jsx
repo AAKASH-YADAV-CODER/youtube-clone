@@ -9,18 +9,23 @@ import { fetchSuggestionData,fetchDataFromTagButton } from '../utilities/api.jsx
 import { videoAction } from '../store/video-slice.jsx';
 import { CiSearch } from "react-icons/ci";
 import ThemeModel from './ThemeModel.jsx';
-
-const NavBar = () => {
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
+import { BASE_URL } from "../utilities/api.jsx";
+const NavBar = ({updateAuthStatus}) => {
     const dispatch = useDispatch();
     const [inputText, setInputText] = useState('');
     const { suggestion } = useSelector(store => store.video);
     const { theme } = useSelector(store => store.ui);
+      const router = useNavigate();
+
     const toggleHandler = () => {
         dispatch(toggleMenu());
     };
     
-    const submitHandler = async() => {
-        const {data} =await fetchDataFromTagButton(inputText);
+    const submitHandler = async () => {
+        const { data } = await fetchDataFromTagButton(inputText);
         dispatch(videoAction.setVideo(data?.items));
         setInputText('');
     };
@@ -37,6 +42,17 @@ const NavBar = () => {
     const insertInputHandler = (text) => {
         setInputText(text);
     };
+    const logoutHandler = async () => {
+    try {
+      const { data } = await axios.post(`${BASE_URL}/api/v1/users/logout`);
+      localStorage.removeItem('token');
+      router("/login");
+      updateAuthStatus(false)
+      toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -53,21 +69,21 @@ const NavBar = () => {
             <ul className='flex justify-between py-1 h-[65px]'>
                 <li className='flex gap-2 ml-4 my-3 cursor-pointer '>
                     <RxHamburgerMenu size={"24px"} onClick={toggleHandler} />
-                    <img src={theme==='dark'?'/images/yt-logo-dark.png':"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"}  className='h-6 hidden sm:inline-block' />
+                    <img src={theme === 'dark' ? '/images/yt-logo-dark.png' : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"} className='h-6 hidden sm:inline-block' />
                 </li>
                 <li className='flex w-[40%] m-2 ml-14'>
                     <div className='border border-gray-800 dark:border-gray-100 rounded-l-3xl w-full '>
-                        <input 
-                            type='text' 
-                            className='outline-none w-full m-2 bg-transparent ml-4' 
-                            placeholder='Search...' 
+                        <input
+                            type='text'
+                            className='outline-none w-full m-2 bg-transparent ml-4'
+                            placeholder='Search...'
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                         />
                     </div>
-                    <button 
-                        type='submit' 
-                        onClick={submitHandler} 
+                    <button
+                        type='submit'
+                        onClick={submitHandler}
                         className='rounded-r-3xl border border-gray-900 px-4 dark:border-gray-100'
                     >
                         <RiSearch2Line />
@@ -79,9 +95,9 @@ const NavBar = () => {
                         <ul>
                             {
                                 suggestion.map((text, idx) => (
-                                    <div 
-                                        className="flex items-center px-4 hover:text-gray-500" 
-                                        key={idx} 
+                                    <div
+                                        className="flex items-center px-4 hover:text-gray-500"
+                                        key={idx}
                                         onClick={() => insertInputHandler(text)}
                                     >
                                         <CiSearch size="24px" />
@@ -94,10 +110,15 @@ const NavBar = () => {
                 }
                 <li className='flex gap-4 mr-4 my-3'>
                     <div className=''>
-                        <ThemeModel/>
+                        <ThemeModel />
                     </div>
-                    <IoMdNotificationsOutline size={"24px"} className='cursor-pointer hidden sm:inline-block' />
-                    <BiSolidCameraMovie size={"24px"} className='cursor-pointer hidden sm:inline-block' />
+                    <button
+                        onClick={logoutHandler}
+                        className="bg-red-600 px-2 py-1 rounded-lg font-semibold shadow-xl text-white hover:border hover:border-yellow-500 dark:bg-white dark:text-black"
+                    >
+                        Logout
+                    </button>
+                    
                     <img src='/images/new.png' className='h-7 w-8 rounded-[50%] cursor-pointer' />
                 </li>
             </ul>

@@ -3,10 +3,10 @@ import NavBar from './NavBar.jsx'
 import SideBar from './SideBar.jsx'
 
 
-const RootLayout = () => {
+const RootLayout = ({ updateAuthStatus }) => {
     return (
         <>
-            <NavBar />
+            <NavBar updateAuthStatus={updateAuthStatus} />
             {/* <SideBar/> */}
         </>
     )
