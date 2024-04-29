@@ -18,7 +18,7 @@ export const categories = [
     { name: "Trending", icon: <MdLocalFireDepartment />, type: "category" },
     { name: "Music", icon: <CgMusicNote />, type: "category" },
     { name: "Films", icon: <FiFilm />, type: "category" },
-    { name: "Films", icon: <FiFilm />, type: "category" },
+    // { name: "Films", icon: <FiFilm />, type: "category" },
     { name: "Live", icon: <MdLiveTv />, type: "category" },
     { name: "Gaming", icon: <IoGameControllerSharp />, type: "category" },
     { name: "News", icon: <ImNewspaper />, type: "category" },
@@ -26,4 +26,4 @@ export const categories = [
     { name: "Learning", icon: <RiLightbulbLine />, type: "category" },
 ];
 
-export const TagsButtonConstant=["ALL","DATA STRUCTURE","OOPS","COMPUTER NETWORKING","OPERATING SYSTEM","JAVASCRIPT","NODEJS","NEXTJS","SQL","MONGODB","REACT","REDUX","C++","MOTIVATIONAL"]
+export const TagsButtonConstant=["ALL","IAS","IPS","DATA STRUCTURE","OOPS","COMPUTER NETWORKING","OPERATING SYSTEM","JAVASCRIPT","NODEJS","NEXTJS","SQL","MONGODB","REACT","REDUX","C++","MOTIVATIONAL"]

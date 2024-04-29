@@ -71,7 +71,7 @@ const NavBar = ({updateAuthStatus}) => {
                     <RxHamburgerMenu size={"24px"} onClick={toggleHandler} />
                     <img src={theme === 'dark' ? '/images/yt-logo-dark.png' : "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"} className='h-6 hidden sm:inline-block' />
                 </li>
-                <li className='flex w-[40%] m-2 ml-14'>
+                <li className='flex w-[70%] sm:w-[40%] m-2 ml-14'>
                     <div className='border border-gray-800 dark:border-gray-100 rounded-l-3xl w-full '>
                         <input
                             type='text'
@@ -119,7 +119,7 @@ const NavBar = ({updateAuthStatus}) => {
                         Logout
                     </button>
                     
-                    <img src='/images/new.png' className='h-7 w-8 rounded-[50%] cursor-pointer' />
+                    {/* <img src='/images/new.png' className='h-7 w-8 rounded-[50%] cursor-pointer' /> */}
                 </li>
             </ul>
         </header>
